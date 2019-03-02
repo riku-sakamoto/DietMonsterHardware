@@ -1,38 +1,27 @@
 "use strict";
 
+function PostWeight(name,weight){
+  var targetUrl = "https://diet-monster.herokuapp.com/weights/api/"+String(name)+"?weight="+String(weight);
+  fetch(targetUrl,{ method:"GET" });
+};
 
-$("#SampleButton").on("click", function(){
-	$.ajax({
-		url : "https://diet-monster.herokuapp.com/tweets/api/112",
-		type : "GET",
-    dataType : "json",
-    timeout: 10000,
-  }).done(function(data){
-    console.log(data);
-  }).fail(function(XMLHttpRequest, textStatus, errorThrown){
-    console.log("Fail");
-  });
-});
+function TweetPost(msg){
+  var targetUrl = "https://diet-monster.herokuapp.com/tweets/api/"+msg;
+  fetch(targetUrl,{ method:"GET" });
+};
 
+function GetScoreInfo(){
+  var targetUrl = "https://diet-monster.herokuapp.com/scores/api";
+  fetch(targetUrl,{
+    method:"GET",
+  }).then((res)=> res.json())
+  .then((data)=> data);
+};
 
-// const fetch = require('node-fetch');
-
-// var DietScore={
-//   Score:100
-// };
-
-// fetch("https://diet-monster.herokuapp.com/tweets/api/100",{
-//   method:"GET",
-// })
-// .then((response) => {
-//   console.log(respose);
-//   return response.text();
-// })
-// .then((body) => {
-//     document.body.innerHTML = body;
-// });
-
-
-
-
-
+function GetMonsterImage(){
+  var targetUrl = "https://diet-monster.herokuapp.com/tweets/image/api";
+  fetch(targetUrl,{
+    method:"GET",
+  }).then((res) => res.json())
+  .then((data) => data);
+};
