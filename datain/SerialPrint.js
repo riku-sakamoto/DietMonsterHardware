@@ -14,6 +14,9 @@ port.on('readable', function () {
 port.on('data', function (data) {
   console.log('Data:', data)
   weight = data;
+  var name = "Diet-Person";
+  var targetUrl = "https://diet-monster.herokuapp.com/weights/api/"+String(name)+"?weight="+String(weight);
+  fetch(targetUrl,{ method:"GET" });
 })
 
 // Pipe the data into another stream (like a parser or standard out)
