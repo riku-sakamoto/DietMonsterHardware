@@ -1,3 +1,6 @@
+/* 0. node.jsのバージョン9以前はimportと書かない*/
+const fetch = require('node-fetch');
+
 let weight;
 
 const SerialPort = require('serialport')
